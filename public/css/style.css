@@ -71,7 +71,6 @@ main .container {
 }
 
 main .container h2 {
-    margin-bottom: 25px;
     font-weight: bold;
     font-size: 2rem;
     color: #333333;
@@ -79,6 +78,7 @@ main .container h2 {
 
 form {
     width: 100%;
+    margin-top: 25px;
     
 }
 
@@ -116,13 +116,21 @@ form {
     cursor: pointer;
 }
 
+p.url-link a{
+    font-weight: bold;
+    color: #2C87C5;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
 .views-count{
     font-size: 1.2rem;
+    margin-top: 25px;
 }
 
 .link-button-container{
     display: flex;
-    
     margin-top: 25px;
 }
 
@@ -170,6 +178,14 @@ footer{
         width: 100%;
         border-radius: 5px;
         margin-bottom: 5px;
+    }
+
+    .link-button-container{
+        flex-direction: column;
+    }
+
+    a.link-button{
+        margin: 5px 0 5px 0;
     }
 
   }

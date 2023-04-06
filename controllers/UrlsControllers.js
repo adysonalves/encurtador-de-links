@@ -1,4 +1,6 @@
+const geradorUrls = require("../functions/geradorUrls");
 const Urls = require("../models/Url");
+
 
 module.exports = class Url {
 
@@ -45,7 +47,7 @@ module.exports = class Url {
 
         const urlCompleta = `https://${link}`
 
-        const geraUrlCurta = Math.floor(100000 + Math.random() * 10000000);
+        const geraUrlCurta = geradorUrls();
 
         await Urls.create({
             urlOriginal: urlCompleta,
