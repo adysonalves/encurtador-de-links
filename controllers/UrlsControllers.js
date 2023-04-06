@@ -70,9 +70,11 @@ module.exports = class Url {
 
         if(url){
             const buscaLink = await Urls.findOne({where: {urlEncurtada: url}, raw:true})
-            console.log(buscaLink)
-            res.render('viewsUrl', {title: 'Visualizações do link', buscaLink: buscaLink, urlBase})
-            return
+
+            if(buscaLink != null){
+                res.render('viewsUrl', {title: 'Visualizações do link', buscaLink: buscaLink, urlBase})
+                return
+            }      
         }
 
         res.redirect('/')
