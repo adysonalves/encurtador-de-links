@@ -5,6 +5,7 @@ const Urls = require("../models/Url");
 module.exports = class Url {
 
     static home(req,res){
+        req.session.destroy()
         res.render('index', { title: 'Encurtador de Links' });
     }
 
@@ -37,7 +38,7 @@ module.exports = class Url {
         const protocolo = req.protocol;
         const hostname = req.hostname;
 
-        const urlBase = protocolo + "://" + hostname + "/"
+        
 
         let link = req.body.link;
 
@@ -46,17 +47,30 @@ module.exports = class Url {
         link = link.replace('https://','');
 
         const urlCompleta = `https://${link}`
-
         const geraUrlCurta = geradorUrls();
+
+        const urlBase = protocolo + "://" + hostname + "/u/" + geraUrlCurta
 
         await Urls.create({
             urlOriginal: urlCompleta,
             urlEncurtada: geraUrlCurta
         }).then((newUrl) => {
-            res.render('urlEncurtada', { title: "Url encurtada", newUrl: newUrl.urlEncurtada, urlBase: urlBase })
+            req.session.urlEncurtada = urlBase;
         });
 
+        res.redirect('/encurtada');
 
+
+    }
+
+    static encurtada(req,res){
+        if(req.session.urlEncurtada){
+            res.render('urlEncurtada', { title: "Url encurtada", urlBase: req.session.urlEncurtada });
+            return;
+        }
+
+        res.redirect('/')
+        
     }
 
     static async viewsUrl(req,res){
