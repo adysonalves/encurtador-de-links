@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&display=swap');
+
+:root {
+    --fonte-principal: 'Lato', sans-serif;
+    --cor-principal: #7D8CA3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: #F4F3EE;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: auto;
+}
+
+header {
+    width: 100%;
+    background-color: #7D8CA3;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: #fff;
+}
+
+main {
+    width: 100%;
+    height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main .container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 150px;
+    padding: 35px 25px;
+    background-color: #fff;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 8px -3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 8px -3px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 8px -3px rgba(0, 0, 0, 0.75);
+}
+
+main .container h2 {
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #333333;
+}
+
+form {
+    width: 100%;
+    
+}
+
+.form-control {
+    display: flex;
+}
+
+.form-control input {
+    width: 80%;
+    height: 60px;
+    border: 1px solid lightgray;
+    border-radius: 5px 0 0 5px;
+    padding-left: 15px;
+    font-size: 1.2rem;
+    font-family: var(--fonte-principal);
+    color: var(--cor-principal);
+}
+
+
+
+.form-control button {
+    width: 20%;
+    height: 60px;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+    background-color: #7D8CA3;
+    color: #fff;
+    font-family: var(--fonte-principal);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.form-control button:hover{
+    background-color: #2C87C5;
+    transition: 0.8s;
+    cursor: pointer;
+}
+
+footer{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    color: var(--cor-principal);
+    font-size: 1rem;
+}
