@@ -38,8 +38,6 @@ module.exports = class Url {
         const protocolo = req.protocol;
         const hostname = req.hostname;
 
-        
-
         let link = req.body.link;
 
         link = link.trim();
@@ -49,7 +47,7 @@ module.exports = class Url {
         const urlCompleta = `https://${link}`
         const geraUrlCurta = geradorUrls();
 
-        const urlBase = protocolo + "://" + hostname + "/u/" + geraUrlCurta
+        const urlBase = process.env.APP_PORT ? `${protocolo}://${hostname}:${process.env.APP_PORT}/u/${geraUrlCurta}` : `${protocolo}://${hostname}/u/${geraUrlCurta}`
 
         await Urls.create({
             urlOriginal: urlCompleta,

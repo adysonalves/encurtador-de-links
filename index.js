@@ -3,7 +3,7 @@ const express = require('express');
 const conn = require('./database/conn'); // database
 const session = require("express-session");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || process.env.APP_PORT;
 
 
 // SESSION
