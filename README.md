@@ -14,4 +14,4 @@ yarn start
 ```
 
 ## Telas da aplicação
-<img src="/assets/tela-home.png" width="300">
+<img src="https://uploaddeimagens.com.br/images/004/420/310/full/tela-home.png" width="300">
