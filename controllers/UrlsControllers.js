@@ -66,6 +66,7 @@ module.exports = class Url {
 
     static encurtada(req,res){
         if(req.session.urlEncurtada){
+            console.log(req.session)
             res.render('urlEncurtada', { title: "Url encurtada", urlBase: req.session.urlEncurtada, urlEncurtada: req.session.urlCurta });
             return;
         }
