@@ -66,7 +66,7 @@ module.exports = class Url {
         const hostname = req.hostname;
         const porta = req.port;
 
-        const urlBase = protocolo + "://" + hostname + "/" + url
+        const urlBase = protocolo + "://" + hostname + "/u/" + url
 
         if(url){
             const buscaLink = await Urls.findOne({where: {urlEncurtada: url}, raw:true})
