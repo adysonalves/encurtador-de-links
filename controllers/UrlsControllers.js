@@ -1,7 +1,12 @@
 const Urls = require("../models/Url");
 
 module.exports = class Url {
-    static async home(req, res) {
+
+    static home(req,res){
+        res.render('index', { title: 'Encurtador de Links' });
+    }
+
+    static async acessaLink(req, res) {
         const url = req.params.url;
 
         if (url) {
@@ -18,11 +23,11 @@ module.exports = class Url {
                 },{where: { urlEncurtada: url } })
                 res.redirect(consulta.urlOriginal);
                 return
-            }
+            }  
 
         }
 
-        res.render('index', { title: 'Encurtador de Links' });
+        res.redirect('/')
     }
 
     static async createLink(req, res) {
@@ -50,5 +55,24 @@ module.exports = class Url {
         });
 
 
+    }
+
+    static async viewsUrl(req,res){
+        const url = req.params.url;
+
+        const protocolo = req.protocol;
+        const hostname = req.hostname;
+        const porta = req.port;
+
+        const urlBase = protocolo + "://" + hostname + "/" + url
+
+        if(url){
+            const buscaLink = await Urls.findOne({where: {urlEncurtada: url}, raw:true})
+            console.log(buscaLink)
+            res.render('viewsUrl', {title: 'Visualizações do link', buscaLink: buscaLink, urlBase})
+            return
+        }
+
+        res.redirect('/')
     }
 }

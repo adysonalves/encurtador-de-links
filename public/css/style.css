@@ -116,13 +116,24 @@ form {
     cursor: pointer;
 }
 
+.views-count{
+    font-size: 1.2rem;
+}
+
+.link-button-container{
+    display: flex;
+    
+    margin-top: 25px;
+}
+
 a.link-button{
     padding: 10px 15px;
     border: 1px solid lightgray;
-    margin-top: 25px;
     text-decoration: none;
     color: #2C87C5;
+    margin-right: 5px;
 }
+
 
 footer{
     width: 100%;

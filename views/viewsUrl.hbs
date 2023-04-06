@@ -1,0 +1,26 @@
+{{> header}}
+
+<main>
+    <div class="container">
+        <h2>Sua URL: {{urlBase}}</h2>
+        <p class="views-count"><i class="fa-solid fa-eye"></i> {{buscaLink.views}}</p>
+        
+        <div class="link-button-container">
+        <a href="/" class="link-button"><i class="fa-solid fa-rotate-right"></i> Encurtar outro link</a>
+        </div>
+
+    </div>
+</main>
+
+<script>
+    const link = document.getElementById('link')
+
+    function copiarLink() {
+        link.select();
+        link.setSelectionRange(0, 99999);
+        document.execCommand("copy");
+        alert("Seu link encurtado foi copiado!");
+    }
+</script>
+
+{{> footer}}

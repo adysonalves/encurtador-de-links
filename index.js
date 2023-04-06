@@ -22,8 +22,14 @@ const Url = require('./models/Url');
 const UrlsController = require('./controllers/UrlsControllers');
 
 // ROTAS
-app.get('/:url?', UrlsController.home);
-app.post('/encurtar', UrlsController.createLink)
+app.get('/', UrlsController.home);
+app.get('/u/:url?', UrlsController.acessaLink);
+app.get('/audiencia/:url?', UrlsController.viewsUrl);
+app.post('/encurtar', UrlsController.createLink);
+
+app.use((req,res,next) => {
+    res.redirect('/')
+})
 
 
 

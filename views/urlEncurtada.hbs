@@ -6,13 +6,16 @@
         <form action="#">
             <div class="form-control">
                 <input type="text" name="link" id="link" placeholder="Cole o link aqui..."
-                    value="{{urlBase}}{{newUrl}}">
+                    value="{{urlBase}}u/{{newUrl}}">
                 <button onclick="copiarLink()" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
             </div>
 
         </form>
 
+        <div class="link-button-container">
         <a href="/" class="link-button"><i class="fa-solid fa-rotate-right"></i> Encurtar outro link</a>
+        <a href="/audiencia/{{newUrl}}" class="link-button"><i class="fa-solid fa-eye"></i> Visualizações</a>
+        </div>
 
     </div>
 </main>
