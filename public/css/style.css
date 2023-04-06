@@ -12,6 +12,11 @@
     box-sizing: border-box;
 }
 
+a{
+    color: #2C87C5;
+    text-decoration: none;
+}
+
 html {
     font-size: 14px;
     scroll-behavior: smooth;
