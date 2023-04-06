@@ -56,6 +56,7 @@ module.exports = class Url {
             urlEncurtada: geraUrlCurta
         }).then((newUrl) => {
             req.session.urlEncurtada = urlBase;
+            req.session.urlCurta = geraUrlCurta
         });
 
         res.redirect('/encurtada');
@@ -65,7 +66,7 @@ module.exports = class Url {
 
     static encurtada(req,res){
         if(req.session.urlEncurtada){
-            res.render('urlEncurtada', { title: "Url encurtada", urlBase: req.session.urlEncurtada });
+            res.render('urlEncurtada', { title: "Url encurtada", urlBase: req.session.urlEncurtada, urlEncurtada: req.session.urlCurta });
             return;
         }
 
