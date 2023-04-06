@@ -21,16 +21,21 @@ module.exports = class Url {
 
         const protocolo = req.protocol;
         const hostname = req.hostname;
-        const porta = req.port;
 
         const urlBase = protocolo + "://" + hostname + "/"
 
-        const link = req.body.link;
+        let link = req.body.link;
+
+        link = link.trim();
+        link = link.replace('http://','');
+        link = link.replace('https://','');
+
+        const urlCompleta = `https://${link}`
 
         const geraUrlCurta = Math.floor(100000 + Math.random() * 10000000);
 
         await Urls.create({
-            urlOriginal: link,
+            urlOriginal: urlCompleta,
             urlEncurtada: geraUrlCurta
         }).then((newUrl) => {
             res.render('urlEncurtada', { title: "Url encurtada", newUrl: newUrl.urlEncurtada, urlBase: urlBase })

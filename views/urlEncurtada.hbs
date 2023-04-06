@@ -4,19 +4,23 @@
     <div class="container">
         <h2>Sua URL encurtada</h2>
         <form action="#">
-        <div class="form-control">
-            <input type="text" name="link" id="link" placeholder="Cole o link aqui..." value="{{urlBase}}{{newUrl}}">
-            <button onclick="copiarLink()" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
-        </div>
+            <div class="form-control">
+                <input type="text" name="link" id="link" placeholder="Cole o link aqui..."
+                    value="{{urlBase}}{{newUrl}}">
+                <button onclick="copiarLink()" type="button"><i class="fa-regular fa-copy"></i> Copiar</button>
+            </div>
 
         </form>
+
+        <a href="/" class="link-button"><i class="fa-solid fa-rotate-right"></i> Encurtar outro link</a>
+
     </div>
 </main>
 
 <script>
     const link = document.getElementById('link')
 
-    function copiarLink(){
+    function copiarLink() {
         link.select();
         link.setSelectionRange(0, 99999);
         document.execCommand("copy");
