@@ -8,6 +8,14 @@ module.exports = class Url {
             const consulta = await Urls.findOne({ where: { urlEncurtada: url } })
 
             if (consulta != null) {
+
+                let views = consulta.views;
+                views = parseInt(views);
+                views += 1;
+
+                await Urls.update({
+                    views: views
+                },{where: { urlEncurtada: url } })
                 res.redirect(consulta.urlOriginal);
                 return
             }

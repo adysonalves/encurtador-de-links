@@ -134,6 +134,9 @@ footer{
 
 @media (max-width: 768px) {
     /* estilos CSS para telas menores que 768px */
+    main {
+        height: calc(100vh - 146px);
+    }
 
     main .container{
         width: 90%;
