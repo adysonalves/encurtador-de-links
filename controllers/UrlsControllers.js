@@ -5,6 +5,7 @@ const Urls = require("../models/Url");
 module.exports = class Url {
 
     static home(req,res){
+        console.log(req.ip)
         req.session.destroy()
         res.render('index', { title: 'Encurtador de Links' });
     }
